@@ -1,88 +1,91 @@
-# Student Manager – WordPress Plugin
+# Student Manager - WordPress Plugin
 
-Plugin quản lý sinh viên cho WordPress được xây dựng theo yêu cầu bài thực hành ngày 24/04/2026.
+Plugin quan ly sinh vien cho WordPress duoc xay dung theo yeu cau bai thuc hanh ngay 24/04/2026.
 
 ---
 
-## Thông tin sinh viên
+## Thong tin sinh vien
 
-- **Họ tên:** Nguyễn Dương Thế Bảo
+- **Ho ten:** Nguyen Duong The Bao
 - **Email:** nguyenduongthebao25@gmail.com
 
 ---
 
-## Mô tả
+## Mo ta
 
-Plugin "Student Manager" cung cấp đầy đủ chức năng quản lý sinh viên trên nền tảng WordPress, bao gồm:
+Plugin "Student Manager" cung cap day du chuc nang quan ly sinh vien tren nen tang WordPress, bao gom:
 
-- Đăng ký **Custom Post Type** `sinh_vien` với menu riêng trong Dashboard.
-- **Meta Box** nhập thông tin chi tiết: MSSV, Lớp/Chuyên ngành, Ngày sinh.
-- Bảo mật dữ liệu bằng **Nonce** và **Sanitize** khi lưu.
-- **Shortcode** `[danh_sach_sinh_vien]` hiển thị danh sách sinh viên dạng bảng HTML có CSS.
+- Dang ky **Custom Post Type** `sinh_vien` voi menu rieng trong Dashboard.
+- **Meta Box** nhap thong tin chi tiet: MSSV, Lop/Chuyen nganh, Ngay sinh.
+- Bao mat du lieu bang **Nonce** va **Sanitize** khi luu.
+- **Shortcode** `[danh_sach_sinh_vien]` hien thi danh sach sinh vien dang bang HTML co CSS.
 
 ---
 
-## Cấu trúc thư mục
+## Cau truc thu muc
 
 ```
 student-manager/
-├── student-manager.php        # File chính: plugin header, load các file con
+├── student-manager.php        # File chinh: plugin header, load cac file con
 ├── includes/
-│   ├── cpt.php                # Đăng ký Custom Post Type "sinh_vien"
-│   ├── meta-box.php           # Meta Box: MSSV, Lớp, Ngày sinh + lưu Nonce/Sanitize
+│   ├── cpt.php                # Dang ky Custom Post Type "sinh_vien"
+│   ├── meta-box.php           # Meta Box: MSSV, Lop, Ngay sinh + luu Nonce/Sanitize
 │   └── shortcode.php          # Shortcode [danh_sach_sinh_vien]
 ├── assets/
-│   └── style.css              # CSS cho bảng danh sách sinh viên
+│   └── style.css              # CSS cho bang danh sach sinh vien
+├── screenshots/               # Anh chup man hinh ket qua
 └── README.md
 ```
 
 ---
 
-## Chức năng chi tiết
+## Chuc nang chi tiet
 
-### A. Quản trị hệ thống (Backend)
+### A. Quan tri he thong (Backend)
 
-| Yêu cầu | Thực hiện |
+| Yeu cau | Thuc hien |
 |---|---|
-| Custom Post Type "Sinh viên" | `includes/cpt.php` – đăng ký CPT `sinh_vien`, hỗ trợ `title` và `editor` |
-| Meta Box nhập liệu | `includes/meta-box.php` – 3 trường: MSSV (text), Lớp (dropdown), Ngày sinh (date) |
-| Bảo mật | Nonce (`wp_nonce_field` / `wp_verify_nonce`) + `sanitize_text_field` trước khi lưu |
+| Custom Post Type "Sinh vien" | `includes/cpt.php` – dang ky CPT `sinh_vien`, ho tro `title` va `editor` |
+| Meta Box nhap lieu | `includes/meta-box.php` – 3 truong: MSSV (text), Lop (dropdown), Ngay sinh (date) |
+| Bao mat | Nonce (`wp_nonce_field` / `wp_verify_nonce`) + `sanitize_text_field` truoc khi luu |
 
-**Dropdown Lớp/Chuyên ngành:** CNTT, Kinh tế, Marketing
+**Dropdown Lop/Chuyen nganh:** CNTT, Kinh te, Marketing
 
-### B. Hiển thị dữ liệu (Frontend)
+### B. Hien thi du lieu (Frontend)
 
 Shortcode: `[danh_sach_sinh_vien]`
 
-Kết quả hiển thị bảng HTML 5 cột:
+Ket qua hien thi bang HTML 5 cot:
 
-| STT | MSSV | Họ tên | Lớp | Ngày sinh |
+| STT | MSSV | Ho ten | Lop | Ngay sinh |
 |-----|------|--------|-----|-----------|
-| 1 | SV001 | Nguyễn Văn An | CNTT | 12/05/2003 |
-| 2 | SV002 | Trần Thị Bình | Kinh tế | 24/08/2003 |
-| ... | ... | ... | ... | ... |
+| 1 | SV001 | Nguyen Van An | CNTT | 12/05/2003 |
+| 2 | SV002 | Tran Thi Binh | Kinh te | 24/08/2003 |
+| 3 | SV003 | Le Hoang Cuong | Marketing | 30/11/2002 |
+| 4 | SV004 | Pham Thi Dung | CNTT | 17/02/2003 |
+| 5 | SV005 | Hoang Minh Duc | Kinh te | 09/07/2002 |
 
 ---
 
-## Hướng dẫn cài đặt
+## Huong dan cai dat
 
-1. Copy thư mục `student-manager` vào `wp-content/plugins/`.
-2. Vào **Dashboard → Plugins → Kích hoạt** plugin **Student Manager**.
-3. Vào menu **Sinh viên → Thêm mới** để thêm sinh viên.
-4. Tạo một **Page**, chèn shortcode `[danh_sach_sinh_vien]` vào nội dung và xuất bản.
+1. Copy thu muc `student-manager` vao `wp-content/plugins/`.
+2. Vao **Dashboard -> Plugins -> Kich hoat** plugin **Student Manager**.
+3. Vao menu **Sinh vien -> Them moi** de them sinh vien.
+4. Tao mot **Page**, chen shortcode `[danh_sach_sinh_vien]` vao noi dung va xuat ban.
 
 ---
 
-## Ảnh chụp kết quả
+## Anh chup ket qua
 
-### Backend – Danh sách sinh viên trong Dashboard
+### Backend - Danh sach sinh vien trong Dashboard
 
 ![Backend](screenshots/backend.png)
 
-### Backend – Meta Box nhập thông tin sinh viên
+### Backend - Meta Box nhap thong tin sinh vien
 
 ![Meta Box](screenshots/meta-box.png)
 
-### Frontend – Bảng danh sách sinh viên
+### Frontend - Bang danh sach sinh vien
 
 ![Frontend](screenshots/frontend.png)
